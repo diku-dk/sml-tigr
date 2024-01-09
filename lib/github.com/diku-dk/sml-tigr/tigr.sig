@@ -1,3 +1,4 @@
+(** TIny GRaphics API. *)
 
 signature TIGR = sig
 
@@ -185,7 +186,7 @@ color c.
 
 [val blue] is the color blue.
 
-[linterp(c1,c2,f)] Returns the color representing the linear
+[lerp(c1,c2,f)] Returns the color representing the linear
 interpolation (channel-wise) between the colors c1 and c2, using f,
 which is assumed to be in the interval [0;1].
 
@@ -377,6 +378,17 @@ if a key is held. keyHeld repeats each frame.
 
 [readChar win] Reads character input for a window.  Returns the
 Unicode value of the last key pressed, or 0 if none.
+
+[mouseX win] returns the x-position of the mouse.
+
+[mouseY win] returns the y-position of the mouse.
+
+[mouseButtons win] returns information about whether the mouse buttons
+are pressed.
+
+[mouse win] returns the x-position of the mouse, the y-position of the
+mouse, and information about whether the the mouse buttons are
+pressed.
 
 [loadImage filename] Loads a PNG from file (fileName is UTF-8) On
 error, returns NULL and sets errno.
