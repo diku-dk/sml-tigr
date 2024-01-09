@@ -1,0 +1,11 @@
+Parts of this software is distributed under the MIT license, including
+the Standard ML signatures, structures, and examples, located in the
+folders
+
+ - lib/github.com/diku-dk/sml-tigr/
+ - sml-examples/
+
+Parts of this software is a fork of the following repository, which is
+distributed with no restrictions (see the file UNLICENSE):
+
+ - https://github.com/erkkah/tigr

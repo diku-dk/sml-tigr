@@ -1,9 +1,58 @@
-# TIGR - TIny GRaphics library
+# Standard ML API for TIGR - the TIny GRaphics library
 
 ![](./tigr.png)
 
-TIGR is a tiny cross-platform graphics library,
-providing a unified API for Windows, macOS, Linux, iOS and Android.
+# sml-tigr [![CI](https://github.com/diku-dk/sml-tigr/workflows/CI/badge.svg)](https://github.com/diku-dk/sml-tigr/actions)
+
+Standard ML package for interfacing with TIGR - the TIny GRaphics
+library, which is a small graphics library that works on both Linux
+and macOS platforms. In particular, this package contains bindings for
+the [MLKit](https://github.com/melsman/mlkit) Standard ML compiler.
+
+Notice that this repository **is a fork** of the repository for TIGR -
+the [TIny GRaphics library](https://github.com/erkkah/tigr) - with an
+added Standard ML API for the library.
+
+## Overview of MLB files
+
+- `lib/github.com/diku-dk/sml-regexp/regexp.mlb`:
+
+  - **signature** [`TIGR`](lib/github.com/diku-dk/sml-tigr/tigr.sig)
+  - **structure** `TIGR`
+
+## Use of the package
+
+The repository is set up to work well with the SML package manager
+[smlpkg](https://github.com/diku-dk/smlpkg).  To use the package, in
+the root of your project directory, execute the command:
+
+```
+$ smlpkg add github.com/diku-dk/sml-tigr
+```
+
+This command will add a _requirement_ (a line) to the `sml.pkg` file in your
+project directory (and create the file, if there is no file `sml.pkg`
+already).
+
+To download the library into the directory
+`lib/github.com/diku-dk/sml-tigr`, execute the command:
+
+```
+$ smlpkg sync
+```
+
+You can now reference the `mlb`-file using relative paths from within
+your project's `mlb`-files.
+
+Notice that you can choose either to treat the downloaded package as
+part of your own project sources (vendoring) or you can add the
+`sml.pkg` file to your project sources and make the `smlpkg sync`
+command part of your build process.
+
+## The C Library (from https://github.com/erkkah/tigr)
+
+TIGR is a tiny cross-platform graphics library, providing a unified
+API for Windows, macOS, Linux, iOS and Android.
 
 TIGR's core is a simple framebuffer library.
 On top of that, we provide a few helpers for the common tasks that 2D programs generally need:
