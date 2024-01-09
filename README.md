@@ -49,6 +49,13 @@ part of your own project sources (vendoring) or you can add the
 `sml.pkg` file to your project sources and make the `smlpkg sync`
 command part of your build process.
 
+## Standard ML Examples
+
+Standard ML examples include the [hello](sml-examples/hello/hello.sml)
+and [flags](sml-examples/flags/flags.sml) examples ported to Standard
+ML from C and the [mandel](sml-examples/mandel/mandel.sml) examples
+demonstrating an interactive Mandelbrot viewer in Standard ML.
+
 ## The C Library (from https://github.com/erkkah/tigr)
 
 TIGR is a tiny cross-platform graphics library, providing a unified
