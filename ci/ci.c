@@ -374,7 +374,7 @@ int main(int argc, char* argv[]) {
                      { "Window basics", windowBasics, 1 },
                      { "Unicode", unicode, 0 },
                      { "Timing", timing, 1 },
-                     { "Custom fx shader", customShader, 2 },
+                     // { "Custom fx shader", customShader, 2 },
                      { "Direct OpenGL calls", directOpenGL, 2 },
                      { "Input processing", input, 1 },
                      { 0 } };
