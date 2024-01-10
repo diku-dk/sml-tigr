@@ -99,7 +99,8 @@ void drawTestPattern(Tigr* bmp) {
     tigrPrint(bmp, font, 10, midH - 40, colors[4], "你好，世界！");
     tigrFreeFont(font);
 
-    Tigr* img = tigrLoadImage("../tigr.png");
+    Tigr* img = tigrLoadImage("../images/tigr.png");
+    assert(img != 0);
     tigrBlit(bmp, img, midW + 1, midH + 1, 42, 125, 70, 42);
     tigrBlitTint(bmp, img, midW + 11, midH + 16, 42, 125, 70, 42, colors[2]);
     tigrBlitAlpha(bmp, img, midW + 21, midH + 31, 42, 125, 70, 42, 0.5);
