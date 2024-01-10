@@ -8,6 +8,7 @@ else
 		LDFLAGS += -arch x86_64 -framework OpenGL -framework Cocoa
 		CFLAGS += -arch x86_64
 	else ifeq ($(UNAME_S),Linux)
+		CFLAGS += -fPIC
 		LDFLAGS += -s -lGLU -lGL -lX11 -L. -ltigr
 	endif
 endif
