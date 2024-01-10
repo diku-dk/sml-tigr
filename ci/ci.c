@@ -298,7 +298,7 @@ void customShader() {
         "   color = c;"
         "}\n";
 
-    //tigrSetPostShader(win, shader, sizeof(shader) - 1);
+    tigrSetPostShader(win, shader, sizeof(shader) - 1);
     tigrSetPostFX(win, 3.14 / 2, 0, 0, 0);
     tigrUpdate(win);
     tigrFree(win);
@@ -374,7 +374,7 @@ int main(int argc, char* argv[]) {
                      { "Window basics", windowBasics, 1 },
                      { "Unicode", unicode, 0 },
                      { "Timing", timing, 1 },
-                     // { "Custom fx shader", customShader, 2 },
+                     { "Custom fx shader", customShader, 2 },
                      { "Direct OpenGL calls", directOpenGL, 2 },
                      { "Input processing", input, 1 },
                      { 0 } };
