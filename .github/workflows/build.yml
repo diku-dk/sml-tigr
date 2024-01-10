@@ -25,14 +25,44 @@ jobs:
       working-directory: ./ci
       run: make
 
-    - name: Run tests (Linux)
+    - name: Run CI tests (Linux)
       if: startsWith(matrix.os, 'ubuntu')
       shell: bash
       working-directory: ./ci
       run: LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH xvfb-run ./ci
 
-    - name: Run tests (macOS)
+    - name: Run CI tests (macOS)
       if: startsWith(matrix.os, 'macos')
       shell: bash
       working-directory: ./ci
       run: ./ci 1
+
+    - name: Setup environment
+      run: |
+        echo "OS=$(uname -s | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+        echo "RUNHOME=$(echo $HOME)" >> $GITHUB_ENV
+
+    - name: Install MLKit and smlpkg
+      working-directory: ${{ env.RUNHOME }}
+      run: |
+        echo "[OS: $OS, HOME: $RUNHOME]"
+        wget https://github.com/diku-dk/smlpkg/releases/download/v0.1.4/smlpkg-bin-dist-${{env.OS}}.tgz
+        tar xzf smlpkg-bin-dist-${{env.OS}}.tgz
+        echo "$HOME/smlpkg-bin-dist-${{env.OS}}/bin" >> $GITHUB_PATH
+        wget https://github.com/melsman/mlkit/releases/download/v4.7.8/mlkit-bin-dist-${{env.OS}}.tgz
+        tar xzf mlkit-bin-dist-${{env.OS}}.tgz
+        echo "$HOME/mlkit-bin-dist-${{env.OS}}/bin" >> $GITHUB_PATH
+        mkdir -p .mlkit
+        echo "SML_LIB $HOME/mlkit-bin-dist-${{env.OS}}/lib/mlkit" > .mlkit/mlb-path-map
+
+    - name: Check versions
+      run: |
+        mlkit --version
+        smlpkg --version
+
+    - name: Compile SML projects
+      shell: bash
+      working-directory: ./sml-examples
+      run: make -C hello
+      run: make -C flags
+      run: make -C mandel
