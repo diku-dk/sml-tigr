@@ -30,7 +30,7 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       shell: bash
       working-directory: ./ci
-      run: xvfb-run ./ci
+      run: LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH xvfb-run ./ci
 
     - name: Run tests (macOS)
       if: startsWith(matrix.os, 'macos')
