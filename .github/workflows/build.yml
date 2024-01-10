@@ -63,6 +63,7 @@ jobs:
     - name: Compile SML projects
       shell: bash
       working-directory: ./sml-examples
-      run: make -C hello
-      run: make -C flags
-      run: make -C mandel
+      run: |
+        make -C hello
+        make -C flags
+        make -C mandel
