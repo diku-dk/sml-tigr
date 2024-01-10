@@ -1,9 +1,7 @@
 # Standard ML API for TIGR - the TIny GRaphics library
 
 ![](./images/tigr.png)
-
 ![](./images/mandel.png)
-
 ![](./images/demo.gif)
 
 # sml-tigr [![CI](https://github.com/diku-dk/sml-tigr/workflows/CI/badge.svg)](https://github.com/diku-dk/sml-tigr/actions)
