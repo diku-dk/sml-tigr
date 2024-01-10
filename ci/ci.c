@@ -298,7 +298,7 @@ void customShader() {
         "   color = c;"
         "}\n";
 
-    tigrSetPostShader(win, shader, sizeof(shader) - 1);
+    //tigrSetPostShader(win, shader, sizeof(shader) - 1);
     tigrSetPostFX(win, 3.14 / 2, 0, 0, 0);
     tigrUpdate(win);
     tigrFree(win);

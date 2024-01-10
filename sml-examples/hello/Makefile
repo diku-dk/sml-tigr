@@ -8,7 +8,7 @@ else
 	ifeq ($(UNAME_S),Darwin)
 		LDFLAGS += -arch x86_64 -framework OpenGL -framework Cocoa -L. -ltigr
 	else ifeq ($(UNAME_S),Linux)
-		LDFLAGS += -s -lGLU -lGL -lX11 -L. -ltigr
+		LDFLAGS += -L. -lGLU -lGL -lX11 -ltigr
 	endif
 endif
 
