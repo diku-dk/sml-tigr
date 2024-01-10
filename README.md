@@ -17,10 +17,10 @@ added Standard ML API for the library.
 
 ## Overview of MLB files
 
-- `lib/github.com/diku-dk/sml-regexp/regexp.mlb`:
+- `lib/github.com/diku-dk/sml-tigr/tigr.mlb`:
 
   - **signature** [`TIGR`](lib/github.com/diku-dk/sml-tigr/tigr.sig)
-  - **structure** `TIGR`
+  - **structure** `Tigr` : [`TIGR`](lib/github.com/diku-dk/sml-tigr/tigr.sig)
 
 ## Use of the package
 
@@ -50,6 +50,15 @@ Notice that you can choose either to treat the downloaded package as
 part of your own project sources (vendoring) or you can add the
 `sml.pkg` file to your project sources and make the `smlpkg sync`
 command part of your build process.
+
+Before compiling a project that uses `tigr.mlb`, the compilation
+process must be set up first to generate a dynamic library for TIGR
+(the file `libtigr.so`) and then to link with the dynamic library at
+program launch. You may use the target `lib` in
+[`Makefile`](./lib/github.com/diku-dk/sml-tigr/clib/Makefile) to
+generate the `libtigr.so` dynamic library. To see an example of how to
+setup MLKit to link with the dynamic library, consult
+[`Makefile`](./sml-examples/mandel/Makefile).
 
 ## Standard ML Examples
 
