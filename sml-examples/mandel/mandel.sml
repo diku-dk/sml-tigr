@@ -2,12 +2,12 @@
 structure Color = struct
   type color = Tigr.color
   val grey = Tigr.fromRgb(0w127,0w127,0w127)
-  fun relax c = Tigr.lerp (c,grey,0.2)
+  fun relax c = Tigr.lerp (c,grey,0.1)
 
   fun palette (C:int) (i:int) : color =  (* i > C for using the entire palette *)
       let val f = real (i mod C) / real C
-          val c4 = Tigr.lerp(Tigr.red,Tigr.green,f)
-          val c5 = Tigr.lerp(Tigr.green,Tigr.blue,f)
+          val c4 = Tigr.lerp(Tigr.black,Tigr.white,f)
+          val c5 = Tigr.lerp(Tigr.lerp(Tigr.green,Tigr.red,f), Tigr.blue, f)
       in relax(Tigr.lerp(c4,c5,f))
       end
 
@@ -93,7 +93,7 @@ fun drawWindow (win:Tigr.tigr) (p1,p2) =
                 end))
         fun pp (x,y) = Real.toString x ^ "," ^ Real.toString y
     in drawMandel ()
-     ; Tigr.print {dest=win, font=Tigr.defaultFont(), x=10, y=h-40, color=Tigr.black,
+     ; Tigr.print {dest=win, font=Tigr.defaultFont(), x=10, y=h-30, color=Tigr.black,
                    text="p1=" ^ pp p1 ^ " | p2=" ^ pp p2 ^ " | screen=" ^ Int.toString w ^ "x" ^ Int.toString h
                         ^ "\nZ/X: zoom in/out | Arrows: move | 1/2/3: defaults | ESC: exit"}
     end

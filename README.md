@@ -1,6 +1,10 @@
 # Standard ML API for TIGR - the TIny GRaphics library
 
-![](./tigr.png)
+![](./images/tigr.png)
+
+![](./images/mandel.png)
+
+![](./images/demo.gif)
 
 # sml-tigr [![CI](https://github.com/diku-dk/sml-tigr/workflows/CI/badge.svg)](https://github.com/diku-dk/sml-tigr/actions)
 
@@ -87,7 +91,7 @@ There are no additional libraries to include; everything is baked right into you
 TIGR is free to copy with no restrictions; see [tigr.h](tigr.h).
 
 ## How do I program with TIGR?
-![](./demo.gif)
+![](./images/demo.gif)
 
 Here's an example Hello World program. For more information, just read [tigr.h](tigr.h) to see the APIs available.
 
