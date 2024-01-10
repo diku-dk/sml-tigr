@@ -11,7 +11,12 @@ else
 	endif
 endif
 
-ci : ci.c libtigr.so
+.PHONY: all
+all:
+	$(MAKE) -C .. prepare
+	$(MAKE) ci
+
+ci$(EXT): ci.c libtigr.so
 	$(CC) $< -o $@$(EXT) $(CFLAGS) $(LDFLAGS)
 
 libtigr.so: ../lib/github.com/diku-dk/sml-tigr/clib/libtigr.so

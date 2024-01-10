@@ -7,7 +7,7 @@ prepare:
 .PHONY: test
 test: prepare
 	$(MAKE) -C lib/github.com/diku-dk/sml-tigr/test
-	$(MAKE) -C ci && (cd ci;  ./ci 1)
+	$(MAKE) -C ci ci && (cd ci;  ./ci 1)
 	$(MAKE) -C sml-examples/hello
 	$(MAKE) -C sml-examples/flags
 	$(MAKE) -C sml-examples/mandel
