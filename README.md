@@ -3,6 +3,7 @@
 ![](./images/tigr.png)
 ![](./images/mandel.png)
 ![](./images/demo.gif)
+![](./images/nbody.gif)
 
 # sml-tigr [![CI](https://github.com/diku-dk/sml-tigr/workflows/CI/badge.svg)](https://github.com/diku-dk/sml-tigr/actions)
 
@@ -64,8 +65,10 @@ setup MLKit to link with the dynamic library, consult
 
 Standard ML examples include the [hello](sml-examples/hello/hello.sml)
 and [flags](sml-examples/flags/flags.sml) examples ported to Standard
-ML from C and the [mandel](sml-examples/mandel/mandel.sml) examples
-demonstrating an interactive Mandelbrot viewer in Standard ML.
+ML from C, the [mandel](sml-examples/mandel/mandel.sml) example
+demonstrating an interactive Mandelbrot viewer, and the
+[nbody](sml-examples/mandel/nbody.sml) example demonstrating an
+interactive Nbody simulator.
 
 ## The C Library (from https://github.com/erkkah/tigr)
 
