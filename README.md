@@ -67,7 +67,7 @@ Standard ML examples include the [hello](sml-examples/hello/hello.sml)
 and [flags](sml-examples/flags/flags.sml) examples ported to Standard
 ML from C, the [mandel](sml-examples/mandel/mandel.sml) example
 demonstrating an interactive Mandelbrot viewer, and the
-[nbody](sml-examples/mandel/nbody.sml) example demonstrating an
+[nbody](sml-examples/nbody/nbody.sml) example demonstrating an
 interactive Nbody simulator.
 
 ## The C Library (from https://github.com/erkkah/tigr)
