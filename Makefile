@@ -1,6 +1,6 @@
 
 .PHONY: prepare
-prepare:
+prepare: lib/github.com/diku-dk/sml-random
 	$(MAKE) -C src
 	$(MAKE) -C lib/github.com/diku-dk/sml-tigr/clib lib
 
@@ -20,3 +20,6 @@ clean:
 	$(MAKE) -C sml-examples/hello clean
 	$(MAKE) -C sml-examples/flags clean
 	$(MAKE) -C sml-examples/mandel clean
+
+lib/github.com/diku-dk/sml-random:
+	smlpkg sync

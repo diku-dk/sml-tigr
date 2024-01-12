@@ -1,4 +1,5 @@
 package github.com/diku-dk/sml-tigr
 
 require {
+  github.com/diku-dk/sml-random 0.1.1 #0a0f79c857207f948e89e18b320f162e30e1fdaf
 }

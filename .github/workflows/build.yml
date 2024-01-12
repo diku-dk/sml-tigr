@@ -20,23 +20,6 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       run: sudo apt install libgl-dev libglu1-mesa-dev xvfb
 
-    - name: Compile
-      shell: bash
-      working-directory: ./ci
-      run: make
-
-    - name: Run CI tests (Linux)
-      if: startsWith(matrix.os, 'ubuntu')
-      shell: bash
-      working-directory: ./ci
-      run: LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH xvfb-run ./ci
-
-    - name: Run CI tests (macOS)
-      if: startsWith(matrix.os, 'macos')
-      shell: bash
-      working-directory: ./ci
-      run: ./ci 1
-
     - name: Setup environment
       run: |
         echo "OS=$(uname -s | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
@@ -59,6 +42,23 @@ jobs:
       run: |
         mlkit --version
         smlpkg --version
+
+    - name: Compile
+      shell: bash
+      working-directory: ./ci
+      run: make
+
+    - name: Run CI tests (Linux)
+      if: startsWith(matrix.os, 'ubuntu')
+      shell: bash
+      working-directory: ./ci
+      run: LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH xvfb-run ./ci
+
+    - name: Run CI tests (macOS)
+      if: startsWith(matrix.os, 'macos')
+      shell: bash
+      working-directory: ./ci
+      run: ./ci 1
 
     - name: Compile SML projects
       shell: bash

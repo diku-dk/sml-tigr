@@ -1,0 +1,6 @@
+local $(SML_LIB)/basis/basis.mlb
+      ../../lib/github.com/diku-dk/sml-tigr/tigr.mlb
+      ../../lib/github.com/diku-dk/sml-random/random.mlb
+in
+      nbody.sml
+end
