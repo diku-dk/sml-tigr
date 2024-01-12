@@ -290,7 +290,7 @@ structure Gui = struct
           fun key k = Tigr.keyHeld(win,k)
           fun loop s =
               if Tigr.closed win orelse keyd Tigr.TK_ESCAPE
-              then Tigr.free win
+              then (Tigr.free win; s)
               else let val () = Tigr.clear(win, Tigr.black)
                        val s = if #height s <> Tigr.height win orelse #width s <> Tigr.width win
                                then init (Tigr.height win) (Tigr.width win)
@@ -324,7 +324,7 @@ structure Gui = struct
                    in Tigr.update win
                     ; loop s
                    end
-      in loop (init initialH initialW)
+      in loop (init initialH initialW); ()
       end
 
   val () = main ()
