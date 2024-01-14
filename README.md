@@ -10,7 +10,7 @@
 Standard ML package for interfacing with TIGR - the TIny GRaphics
 library, which is a small graphics library that works on both Linux
 and macOS platforms. In particular, this package contains bindings for
-the [MLKit](https://github.com/melsman/mlkit) Standard ML compiler.
+the [MLKit](https://github.com/melsman/mlkit) (> v4.7.8).
 
 Notice that this repository **is a fork** of the repository for TIGR -
 the [TIny GRaphics library](https://github.com/erkkah/tigr) - with an
@@ -66,17 +66,19 @@ setup MLKit to link with the dynamic library, consult
 Standard ML examples include the [hello](sml-examples/hello/hello.sml)
 and [flags](sml-examples/flags/flags.sml) examples ported to Standard
 ML from C, the [mandel](sml-examples/mandel/mandel.sml) example
-demonstrating an interactive Mandelbrot viewer, and the
+demonstrating an interactive Mandelbrot viewer, the
 [nbody](sml-examples/nbody/nbody.sml) example demonstrating an
-interactive Nbody simulator.
+interactive Nbody simulator, and the [ray](sml-examples/ray/ray.sml)
+example demonstrating dynamic ray-tracing.
 
 ## The C Library (from https://github.com/erkkah/tigr)
 
 TIGR is a tiny cross-platform graphics library, providing a unified
 API for Windows, macOS, Linux, iOS and Android.
 
-TIGR's core is a simple framebuffer library.
-On top of that, we provide a few helpers for the common tasks that 2D programs generally need:
+TIGR's core is a simple framebuffer library.  On top of that, TIGR
+provides a few helpers for the common tasks that 2D programs generally
+need:
 
  - Bitmap-backed windows.
  - Direct access to bitmaps, no locking.
@@ -103,7 +105,8 @@ TIGR is free to copy with no restrictions; see [tigr.h](tigr.h).
 ## How do I program with TIGR?
 ![](./images/demo.gif)
 
-Here's an example Hello World program. For more information, just read [tigr.h](tigr.h) to see the APIs available.
+Here's an example Hello World program in C. For more information, just
+read [tigr.h](tigr.h) to see the APIs available.
 
 ```C
 #include "tigr.h"

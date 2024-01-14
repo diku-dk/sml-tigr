@@ -11,6 +11,8 @@ test: prepare
 	$(MAKE) -C sml-examples/hello
 	$(MAKE) -C sml-examples/flags
 	$(MAKE) -C sml-examples/mandel
+	$(MAKE) -C sml-examples/nbody
+	$(MAKE) -C sml-examples/ray
 
 .PHONY: clean
 clean:
@@ -20,6 +22,8 @@ clean:
 	$(MAKE) -C sml-examples/hello clean
 	$(MAKE) -C sml-examples/flags clean
 	$(MAKE) -C sml-examples/mandel clean
+	$(MAKE) -C sml-examples/nbody clean
+	$(MAKE) -C sml-examples/ray clean
 
 lib/github.com/diku-dk/sml-random:
 	smlpkg sync
