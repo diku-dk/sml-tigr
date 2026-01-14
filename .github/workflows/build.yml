@@ -48,6 +48,12 @@ jobs:
       working-directory: ./ci
       run: ./ci 1
 
+    - name: Compile and Run SML tests
+      shell: bash
+      working-directory: ./lib/github.com/diku-dk/sml-tigr/test
+      run: |
+        make all
+
     - name: Compile SML projects
       shell: bash
       working-directory: ./sml-examples
