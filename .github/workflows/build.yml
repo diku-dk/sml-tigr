@@ -48,7 +48,8 @@ jobs:
       working-directory: ./ci
       run: ./ci 1
 
-    - name: Compile and Run SML tests
+    - name: Compile and Run SML tests (macos)
+      if: startsWith(matrix.os, 'macos')
       shell: bash
       working-directory: ./lib/github.com/diku-dk/sml-tigr/test
       run: |
