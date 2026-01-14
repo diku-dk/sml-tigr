@@ -25,5 +25,9 @@ clean:
 	$(MAKE) -C sml-examples/nbody clean
 	$(MAKE) -C sml-examples/ray clean
 
+.PHONY: realclean
+realclean: clean
+	rm -rf lib/github.com/diku-dk/sml-random
+
 lib/github.com/diku-dk/sml-random:
 	smlpkg sync

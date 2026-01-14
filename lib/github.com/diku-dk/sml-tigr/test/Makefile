@@ -1,4 +1,3 @@
-PROGNAME=hello
 MLKIT=mlkit
 LIBS=
 ifeq ($(OS),Windows_NT)
@@ -14,9 +13,13 @@ else
 endif
 
 .PHONY: all
-all: $(PROGNAME).exe
+all: hello.exe img.exe out.png
+	diff out.png out.ok.png
 
-$(PROGNAME).exe: $(PROGNAME).mlb $(PROGNAME).sml libtigr.so
+out.png: img.exe
+	./img.exe
+
+%.exe: %.mlb %.sml libtigr.so
 	MLCOMP=mlkit $(MLKIT) -ldexe '$(CC) $(LDFLAGS)' $(LIBS) -o $@ $<
 
 libtigr.so: ../clib/libtigr.so
@@ -24,4 +27,4 @@ libtigr.so: ../clib/libtigr.so
 
 .PHONY: clean
 clean:
-	rm -rf *~ *.exe MLB libtigr.so
+	rm -rf *~ *.exe MLB libtigr.so img.png

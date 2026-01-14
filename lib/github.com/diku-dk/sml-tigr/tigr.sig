@@ -60,6 +60,9 @@ val TIGR_BLEND_ALPHA : blitmode   (* Blend destination alpha (default) *)
 
 val blitMode   : tigr * blitmode -> unit
 
+val fromArray  : tigr * Word8Array.array -> unit
+val toArray    : tigr * Word8Array.array -> unit
+
 (* Font printing *)
 type codepage
 val TCP_ASCII      : codepage           (* Regular 7-bit ASCII *)
@@ -338,6 +341,15 @@ source with the destination.
 
 [blitMode (bmp,blitmode)] Sets destination bitmap blend mode for blit
 operations.
+
+[toArray (bitmap, arr)] copies bitmap pixel data into the Word8Array.array
+arr. Pixels are stored row-major with pixel-data in the order r,g,b,a. Raises
+Fail(msg) if the array arr is not compatible in size with bitmap.
+
+[fromArray (bitmap, arr)] copies bitmap pixel data from the Word8Array.array arr
+into bitmap. Pixels are assumed to be stored row-major with pixel-data in the
+order r,g,b,a. Raises Fail(msg) if the array arr is not compatible in size with
+bitmap.
 
 [type font] Type of fonts.
 

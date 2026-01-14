@@ -286,6 +286,20 @@ fun textHeight (font:font, text:string) : int =
 fun defaultFont () : font =
     prim("@tigrFont", ())
 
+fun toArray (bm:tigr, a:Word8Array.array) =
+    let val len = Word8Array.length a
+        val ret : int = prim("@toCharArray", (bm, len, a))
+    in if ret < 0 then raise Fail "Tigr.toArray gets incompatible data"
+       else ()
+    end
+
+fun fromArray (bm:tigr, a:Word8Array.array) =
+    let val len = Word8Array.length a
+        val ret : int = prim("@fromCharArray", (bm, len, a))
+    in if ret < 0 then raise Fail "Tigr.fromArray gets incompatible data"
+       else ()
+    end
+
 (* User Input *)
 type key = int
 fun ascii (c: char) : key = Char.ord c

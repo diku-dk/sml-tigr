@@ -274,9 +274,8 @@ fun scatter (r: ray) (hit: hit) =
     end
 
 fun attenuate (a:color) (c:color) : color =
-    let fun toReal (c:Word8.word) : real = real(Word8.toInt c) / 255.0
-        fun fromReal (c:real) : Word8.word = Word8.fromInt(round (255.0*c))
-        fun mix c c' = fromReal (toReal c * toReal c')
+    let fun mix (a:Word8.word) (c:Word8.word) : Word8.word =
+            Word8.fromInt((Word8.toInt a * Word8.toInt c) div 255)
         val (ar,ag,ab) = Tigr.toRgb a
         val (r,g,b) = Tigr.toRgb c
     in Tigr.fromRgb(mix ar r, mix ag g, mix ab b)
@@ -286,9 +285,9 @@ fun ray_color objs r D depth =
     case objs_hit objs r 0.001 1000000000.0 of
         SOME hit =>
         (case scatter r hit of
-             SOME (scattered, attenuation) =>
+             SOME (scattered, a) =>
              if depth < D
-             then attenuate attenuation (ray_color objs scattered D (depth+1))
+             then attenuate a (ray_color objs scattered D (depth+1))
              else black
            | NONE => black)
       | NONE => let val unit_dir = normalise (#dir r)
