@@ -5,11 +5,16 @@ ifeq ($(OS),Windows_NT)
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
-		LDFLAGS += -arch x86_64 -framework OpenGL -framework Cocoa
-		CFLAGS += -arch x86_64
+		UNAME_M := $(shell uname -m)
+		ifeq ($(UNAME_M),arm64)
+		else
+			LDFLAGS += -arch x86_64
+			CFLAGS += -arch x86_64
+		endif
+		LDFLAGS += -framework OpenGL -framework Cocoa
 	else ifeq ($(UNAME_S),Linux)
 		CFLAGS += -fPIC
-		LDFLAGS += -s -lGLU -lGL -lX11 -L. -ltigr
+		LDFLAGS += -s -lGLU -lGL -lX11
 	endif
 endif
 

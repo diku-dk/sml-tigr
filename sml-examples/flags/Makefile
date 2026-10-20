@@ -6,7 +6,12 @@ ifeq ($(OS),Windows_NT)
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
-		LDFLAGS += -arch x86_64 -framework OpenGL -framework Cocoa -L. -ltigr
+		UNAME_M := $(shell uname -m)
+		ifeq ($(UNAME_M),arm64)
+		else
+			LDFLAGS += -arch x86_64
+		endif
+		LDFLAGS += -framework OpenGL -framework Cocoa -L. -ltigr
 	else ifeq ($(UNAME_S),Linux)
 		LDFLAGS += -L.
 		LIBS += -libs 'm,c,dl,GLU,GL,X11,tigr'
